@@ -25,6 +25,13 @@
 
     <link rel="stylesheet" href="./style/login.css">
 
+    <!--Diables the back button of the browser-->
+    <script type="text/javascript" >
+        function preventBack(){window.history.forward();}
+         setTimeout("preventBack()", 0);
+         window.onunload=function(){null};
+     </script>
+
 </head>
 
 <body id="background">
@@ -32,7 +39,11 @@
     <!--  HTML Section -->
     <!----------------------->
 
-    <h1 id="title">Covid Blocker</h1>
+    <div id="container">
+        <nav class="navbar">
+            <img id="picture" src="./images/logo.png" alt="Picture of our tracker">
+        </nav>
+    </div>
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
 

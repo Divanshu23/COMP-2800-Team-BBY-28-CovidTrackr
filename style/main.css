@@ -1,0 +1,120 @@
+  .navbar {
+    overflow: hidden;
+    background-color:darkgrey;
+  }
+  #picture{
+     width:10vw;
+  }
+  
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+ 
+#welcomeMessage{
+    text-align: center;
+}
+
+#container{
+    width: 100%;
+	height: 65%;
+	background-color:#ddd;
+	
+	position: absolute;
+	top:10vw;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#buttonContainer{
+  position: relative;
+  top:37vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+#displayData{
+  position: relative;
+  top:40vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.trackMe {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #15317E;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 250px;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin: 5px;
+  }
+  
+  .trackMe span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    
+  }
+  
+  .trackMe span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .trackME:hover span {
+    padding-right: 20px;
+   
+  }
+  
+  .trackMe:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  #readButton{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #15317E;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 250px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  #readbutton:hover{
+    background-color: #3090C7;
+  }
