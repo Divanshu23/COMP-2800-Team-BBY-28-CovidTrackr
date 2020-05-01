@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
 .dropbtn {
   background-color: #3498DB;
   color: white;
@@ -51,17 +46,3 @@
 .dropup:hover .dropbtn {
   background-color: #2980B9;
 }
-</style>
-</head>
-<body>
-
-<div class="dropup">
-  <button class="dropbtn">Notification</button>
-  <div class="dropup-content">
-    <p><i>You are exposed!</i></p>
-    <a href="#">Learn more here...</a>
-  </div>
-</div>
-
-</body>
-</html>
