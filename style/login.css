@@ -6,4 +6,20 @@
     -webkit-text-stroke-color: grey;
 
 }
+.navbar {
+    
+    overflow: hidden;
+    background-color:darkgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #picture{
+     width:20vw;
+  }
+  #container{
+      padding-bottom:10vw;
+  }
+  
+ 
 
