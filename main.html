@@ -64,7 +64,7 @@
   </div>
   <div id="displayData">
     <h2 id="timerText">Timer:</h2>
-    <p id="readDataTextBox"></p>
+    <h3 id="readDataTextBox"></h3>
   </div>
 
 
@@ -124,7 +124,7 @@
         snap.forEach(function (doc) { // iterate thru collections
           dbReadDataLat[i] = doc.data().lat;
           dbReadDataLon[i] = doc.data().lon;
-          dbReadDataTimeStamp[i] = doc.data().timeStamp.toString();
+          dbReadDataTimeStamp[i] = doc.data().timeStamp;
 
           i += 1;
         });
@@ -133,7 +133,8 @@
         for (i = 0; i < dbReadDataLat.length; i++) {
           newHtml += "<li><b>lat:</b> " + dbReadDataLat[i] + " ";
           newHtml += "<b>lon:</b> " + dbReadDataLon[i] + " ";
-          newHtml += "<b>time:</b> " + dbReadDataTimeStamp[i] + "</li>";
+          var s = new Date(dbReadDataTimeStamp[i]).toLocaleDateString("en-US") +" "+ new Date(dbReadDataTimeStamp[i]).toLocaleTimeString("en-US");
+          newHtml += "<b>time:</b> " + s + "</li>";
         }
         newHtml += "</ul>";
         $('#readDataTextBox').html(newHtml);
