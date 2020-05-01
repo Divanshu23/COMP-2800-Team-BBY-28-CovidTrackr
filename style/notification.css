@@ -1,24 +1,28 @@
 .dropbtn {
+  position: fixed;
   background-color: #3498DB;
   color: white;
   padding: 16px;
   font-size: 16px;
   border-radius: 5px;
+  bottom: 10px;
+  right: 10px;
 }
 
 .dropup {
-  position: absolute;
+  position: fixed;
   display: inline-block;
-  bottom: 10px;
-  left: 10px;
+  bottom: 20px;
+  right: 10px;
 }
 
 .dropup-content {
   display: none;
-  position: absolute;
+  position: fixed;
+ right: 10px;
   background-color: #f1f1f1;
   min-width: 160px;
-  bottom: 50px;
+  bottom: 60px;
   z-index: 1;
   border-radius: 5px;
 }
