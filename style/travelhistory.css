@@ -1,0 +1,41 @@
+.navbar {
+  overflow: hidden;
+  background-color:darkgrey;
+}
+#picture{
+   width:10vw;
+}
+  
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+  
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+  
+ 
+#welcomeMessage{
+  text-align: center;
+  padding-bottom: 0px;
+}
+
+
+#map {
+  width: 50%;
+  height: 600px;
+  background: grey;
+  float: left;
+}
+
+#routeButtonHolder {
+  margin-left: 20px;
+  display: inline;
+}

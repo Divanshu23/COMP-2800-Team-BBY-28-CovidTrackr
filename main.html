@@ -43,7 +43,7 @@
     <nav class="navbar">
       <a href="main.html"><img id="picture" src="./images/logo.png" alt="Picture of our tracker"></a>
       <a id="num1" href="">About us</a>
-      <a id="num2" href="">Travel History</a>
+      <a id="num2" href="travelhistory.html">Travel History</a>
       <a id="num3" href="">Map</a>
       <a id="num4" href="">Resources</a>
       <a id="num4" href="">Declare COVID Positive</a>
@@ -51,13 +51,14 @@
     </nav>
   </div>
 
-  </br>
 
   <h1 id="welcomeMessage">Welcome</h1>
 
 
   <div id='container'>
-    <button type="button" class="trackMe"><span>TRACK ME</span></button>
+    <button type="button" id="startTrackingMe" class="trackMe"><span>TRACK ME</span></button>
+    <button type="button" id="stopTrackingMe" class="trackMe"><span>STOP TRACKING</span></button>
+    <button type="button" id="extendTrackingMe" class="trackMe"><span>EXTEND TIMER</span></button>
   </div>
 
   <div id="buttonContainer">
@@ -77,6 +78,8 @@
     </div>
   </div>
 
+
+  
   <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
@@ -92,16 +95,25 @@
 
 
   <script>
-    //write timestamp and location to the database
-    $(document).on('click', '.trackMe', function (event) {
-      getLocation();
-      showError();
+    //start a timer that tracks the users location
+    $(document).on('click', '#startTrackingMe', function (event) {
+      startTracking();
+
+    });
+    
+    //stop tracking the user's location
+    $(document).on('click', '#stopTrackingMe', function (event) {
+      endTracking();
+    });
+    
+    //extend the timer back to 30min for tracking the user
+    $(document).on('click', '#extendTrackingMe', function (event) {
+      timeCounter=30*60-1;
     });
 
 
 
     function saveData() {
-
       var user = firebase.auth().currentUser;
       var curDate = new Date();
       var curTime = curDate.getTime();
@@ -151,40 +163,97 @@
     });
 
 
+    //either the timer has ran out or the user has clicked the stop tracking button
+    function endTracking() {
+      tryingToTrack=false;
+      timeCounter=0;
+
+      $("#stopTrackingMe").css({"display" : "none"});
+      $("#extendTrackingMe").css({"display" : "none"});
+      $("#startTrackingMe").css({"display" : "inline-block"});
+    }
+    
+    
+    
+    
     //timer
     timeCounter = 0;
 
-    function displayTimer() {
+    function updateTimer() {
       $('#timerText').html("Timer: " + timeCounter.toString());
-      timeCounter++;
-      setTimeout(displayTimer, 1000);
+      
+      if((timeCounter>0)&&(tryingToTrack)&&(geoDataExists)) {
+        //only save the user's position every 60 seconds
+        if(timeCounter%60==0){
+          saveData();
+        }
+
+        timeCounter--;
+        if(timeCounter==0)
+        {
+          endTracking();
+        }
+      }
+      
+      setTimeout(updateTimer, 1000);
     }
-    displayTimer();
+    updateTimer();
 
 
 
     //GPS Code
-    errorMessage = "";
-    latData = -1;
-    lonData = -1;
-
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-      } else {
-        errorMessage = "Geolocation is not supported by this browser.";
+    var errorMessage = "";
+    var latData = -1;
+    var lonData = -1;
+    var geoDataExists = false;
+    var tryingToTrack = false;
+    function startTracking() {
+      if(!geoDataExists)
+      {
+        if (navigator.geolocation) {
+          navigator.geolocation.watchPosition(updateGEOPosition, showError, options);
+        } else {
+          tryingToTrack=false;
+          errorMessage = "Geolocation is not supported by this browser.";
+        }
+      }
+      else
+      {
+        startedTrackingSuccessful();
       }
     }
+    
+    options = {
+      enableHighAccuracy: false,
+      timeout: 5000,
+      maximumAge: 0
+    };
 
 
-
-    function showPosition(position) {
+    //this is called everytime our app gets location data on the user
+    function updateGEOPosition(position) {
       latData = position.coords.latitude;
       lonData = position.coords.longitude;
-      saveData();
+      if(!geoDataExists)
+        {
+          geoDataExists=true;
+          startedTrackingSuccessful();
+        }
+    }
+    
+    function startedTrackingSuccessful(){
+      tryingToTrack=true;
+      timeCounter=30*60;
+      
+      $("#startTrackingMe").css({"display" : "none"});
+      $("#stopTrackingMe").css({"display" : "inline-block"});
+      $("#extendTrackingMe").css({"display" : "inline-block"});
     }
 
-    function showError(error) {
+    //GEO tracking error
+    //the error type is stored in errorMessage
+    function showError(error) {      
+      tryingToTrack=false;
       switch (error.code) {
         case error.PERMISSION_DENIED:
           errorMessages = "User denied the request for Geolocation."
@@ -215,6 +284,9 @@
         //console.log("Some error occured");
       });
     })
+    
+
+    
   </script>
 
 </body>
