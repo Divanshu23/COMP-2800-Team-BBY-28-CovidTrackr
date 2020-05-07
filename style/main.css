@@ -68,7 +68,7 @@
     text-align: center;
     font-size: 28px;
     padding: 20px;
-    width: 250px;
+    width: 350px;
     cursor: pointer;
     transition: all 0.5s;
     margin: 5px;
@@ -101,6 +101,18 @@
     right: 0;
   }
 
+#stopTrackingMe{
+  background-color: #7E1515;
+  display: none;
+}
+
+#extendTrackingMe{
+  background-color: #157E15;
+  display: none;
+}
+
+
+
   #readButton{
     display: inline-block;
     border-radius: 4px;
@@ -119,3 +131,9 @@
   #readbutton:hover{
     background-color: #3090C7;
   }
+
+#map {
+    width: 50%;
+    height: 450px;
+    background: grey;
+}
