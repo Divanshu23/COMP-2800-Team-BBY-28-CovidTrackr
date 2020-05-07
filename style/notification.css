@@ -1,6 +1,6 @@
 .dropbtn {
   position: fixed;
-  background-color: #3498DB;
+  /*background-color: #3498DB;*/
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -8,7 +8,14 @@
   bottom: 10px;
   right: 10px;
 }
+#globe {
+	width: 25px;
+	height: 25px;
+}
 
+#status {
+	display: block;
+}
 .dropup {
   position: fixed;
   display: inline-block;
