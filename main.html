@@ -10,15 +10,15 @@
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+  </script>
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
+  </script>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -28,46 +28,52 @@
 
   <!--Disables the back button of the browser.-->
   <script type="text/javascript">
-    function preventBack() { window.history.forward(); }
+    function preventBack() {
+      window.history.forward();
+    }
     setTimeout("preventBack()", 0);
-    window.onunload = function () { null };
+    window.onunload = function () {
+      null
+    };
   </script>
 
 
-  <title>Covid Blocker</title>
+  <title>Covid Trackr</title>
+  <link rel="icon" href="images/favicon.png">
 </head>
 
 <body>
 
-  <div>
-    <nav class="navbar">
-      <a href="main.html"><img id="picture" src="./images/logo.png" alt="Picture of our tracker"></a>
-      <a id="num1" href="">About us</a>
-      <a id="num2" href="">Travel History</a>
-      <a id="num3" href="">Map</a>
-      <a id="num4" href="">Resources</a>
-      <a id="num4" href="">Declare COVID Positive</a>
-      <button id="logoutButton" type="button">Log Out</button>
-    </nav>
-  </div>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><img id="picture" src="images/logo2.png" alt="CovidTrackr"></a>
+      </li>
+    </ul>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav">
+        <a href="#" class="nav-item nav-link" onclick="window.location='about.html'">About us</a>
+        <a href="#" class="nav-item nav-link">Travel History</a>
+        <a href="#" class="nav-item nav-link">Declare COVID Positive</a>
+        <a href="#" class="nav-item nav-link">Resources</a>
+        <a href="#" id="logoutButton" class="nav-item nav-link">Logout</a>
+      </div>
+    </div>
+  </nav>
+
 
   </br>
 
-  <h1 id="welcomeMessage">Welcome</h1>
+  <h1 id="welcomeMessage"></h1>
 
 
   <div id='container'>
     <button type="button" class="trackMe"><span>TRACK ME</span></button>
   </div>
-
-  <div id="buttonContainer">
-    <button type="button" id="readButton"><span>Read Info</span></button>
-  </div>
-  <div id="displayData">
-    <h2 id="timerText">Timer:</h2>
-    <h3 id="readDataTextBox"></h3>
-  </div>
-
 
   <div class="dropup">
     <button class="dropbtn">Notification</button>
@@ -76,6 +82,7 @@
       <a href="#">Learn more here...</a>
     </div>
   </div>
+
 
   <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
@@ -86,8 +93,9 @@
     const welcome = document.getElementById("welcomeMessage");
     db.collection("users").onSnapshot(function (querySnapshot) {
       console.log(firebase.auth().currentUser.displayName);
-      welcome.innerHTML = "Welcome, " + firebase.auth().currentUser.displayName;
+      welcome.innerHTML = "<i>Welcome, " + firebase.auth().currentUser.displayName + "</i>";
     });
+    $("#welcomeMessage").css('color','white');
   </script>
 
 
@@ -142,7 +150,8 @@
         for (i = 0; i < dbReadDataLat.length; i++) {
           newHtml += "<li><b>lat:</b> " + dbReadDataLat[i] + " ";
           newHtml += "<b>lon:</b> " + dbReadDataLon[i] + " ";
-          var s = new Date(dbReadDataTimeStamp[i]).toLocaleDateString("en-US") +" "+ new Date(dbReadDataTimeStamp[i]).toLocaleTimeString("en-US");
+          var s = new Date(dbReadDataTimeStamp[i]).toLocaleDateString("en-US") + " " + new Date(
+            dbReadDataTimeStamp[i]).toLocaleTimeString("en-US");
           newHtml += "<b>time:</b> " + s + "</li>";
         }
         newHtml += "</ul>";
