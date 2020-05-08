@@ -52,12 +52,27 @@
                 <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="main.html">
-                            Track Me
+                            Travel History
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="https://mobirise.com">
+                            Map
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-white display-4" href="#">
+                            Resources
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-white display-4" href="#">
                             Declare COVID Positive
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-white display-4" id="logoutButton">
+                           Logout
                         </a>
                     </li>
                 </ul>
@@ -212,6 +227,23 @@
     <script src="assets/dropdown/js/navbar-dropdown.js"></script>
     <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
     <script src="assets/theme/js/script.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script src="scripts/firebase.js"> </script>
+    <script>
+        //Logout function
+    $("#logoutButton").on('click', function () {
+      firebase.auth().signOut().then(function () {
+        //console.log("Singout Successful");
+        window.location.href = "index.html";
+      }, function (error) {
+        //console.log("Some error occured");
+      });
+    })
+    </script>
 
 
 </body>

@@ -38,8 +38,7 @@ body {
   transform: translateX(-50%);
 }
 
-<<<<<<< HEAD
-}
+
 .trackMe {
     display: inline-block;
     border-radius: 4px;
@@ -118,48 +117,3 @@ body {
     height: 450px;
     background: grey;
 }
-=======
-
-
- .trackMe {
-   display: inline-block;
-   border-radius: 4px;
-   background-color: #15317E;
-   border: none;
-   color: #FFFFFF;
-   text-align: center;
-   font-size: 28px;
-   padding: 20px;
-   width: 250px;
-   cursor: pointer;
-   transition: all 0.5s;
-   margin: 5px;
- }
-
- .trackMe span {
-   cursor: pointer;
-   display: inline-block;
-   position: relative;
-   transition: 0.5s;
-
- }
-
- .trackMe span:after {
-   content: '\00bb';
-   position: absolute;
-   opacity: 0;
-   top: 0;
-   right: -20px;
-   transition: 0.5s;
- }
-
- .trackME:hover span {
-   padding-right: 20px;
-
- }
-
- .trackMe:hover span:after {
-   opacity: 1;
-   right: 0;
- }
->>>>>>> layout_Divanshu_Copy

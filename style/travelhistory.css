@@ -1,41 +1,108 @@
-.navbar {
-  overflow: hidden;
-  background-color:darkgrey;
-}
-#picture{
-   width:10vw;
-}
-  
-.navbar a {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-  
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
-  
- 
-#welcomeMessage{
-  text-align: center;
-  padding-bottom: 0px;
+ /*Navbar styling*/
+ #navbarCollapse>div>a{
+  padding-left:10vw;
 }
 
+#picture{
+  width:23vh;
+  height:5vh;
+}
+ 
+body {
+  background: rgb(32, 72, 106);
+  background: linear-gradient(90deg, rgba(32, 72, 106, 1) 0%, rgba(0, 131, 158, 1) 100%);
+} 
+
+#welcomeMessage {
+  position: relative;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  padding-bottom:1%;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  color: #e0dfdc;
+    letter-spacing: .1em;
+  }
 
 #map {
+  display: block;
+  position: relative;
+  margin: auto;
+  top: 30%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 25%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
   width: 50%;
-  height: 600px;
+  height: 50%;
   background: grey;
-  float: left;
 }
 
 #routeButtonHolder {
-  margin-left: 20px;
-  display: inline;
+  display: block;
+  position: absolute;
+  margin: auto;
+  top: 30%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 88%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.travelHistoryButton{
+  background-color:#F5F5DC;
+  color:black;
+  border-radius:10px;
+  padding: 1%;
+  width:130px;
+  
+}
+
+.btnContainer{
+  padding-bottom: 3%;
+}
+
+@media all and (max-width:600px){
+  #map {
+    display: block;
+    position: relative;
+    margin: auto;
+    top: 30%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 40%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 80%;
+    height: 50%;
+    background: grey;
+  }
+  
+  
+#routeButtonHolder {
+  display: block;
+  position: relative;
+  margin: auto;
+  top: 80%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 85%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.travelHistoryButton{
+  background-color:#F5F5DC;
+  color:black;
+  border-radius:10px;
+  padding: 1%;
+  width:130px;
+  
+}
+
+.btnContainer{
+  padding-bottom: 1%;
+}
 }

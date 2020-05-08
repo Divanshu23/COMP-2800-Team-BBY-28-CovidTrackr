@@ -10,6 +10,8 @@ body {
 #container {
   display: block;
   text-align: center;
+  width:250px;
+  height:100px;
   position: absolute;
   margin: auto;
   top: 50%;
@@ -20,5 +22,10 @@ body {
   transform: translateX(-50%);
 }
 
+
+.btn{
+  width:250px;
+  height: 100px;
+}
 
 
