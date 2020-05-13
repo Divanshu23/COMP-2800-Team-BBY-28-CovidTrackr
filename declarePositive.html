@@ -1,0 +1,273 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style/notification.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style/declarePositive.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!--Disables the back button of the browser.-->
+  <script type="text/javascript">
+    function preventBack() {
+      window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () {
+      null
+    };
+  </script>
+
+
+  <title>Covid Trackr</title>
+  <link rel="icon" href="images/favicon.png">
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><img id="picture" src="images/logo2.png" alt="CovidTrackr"></a>
+      </li>
+    </ul>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav">
+        <a href="#" class="nav-item nav-link" onclick="window.location='about.html'">About us</a>
+        <a href="#" class="nav-item nav-link" onclick="window.location='travelhistory.html'">Travel History</a>
+        <a href="#" class="nav-item nav-link" onclick="window.location='declarePositive.html'">Declare COVID Positive</a>
+        <a href="#" class="nav-item nav-link">Resources</a>
+        <a href="#" id="logoutButton" class="nav-item nav-link">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <div>
+    <img id="declare" src="IDeclareBankruptcy.jpg" alt="I Declare Bankruptcy!!!">
+  </div>
+  <div id="covidStatusDisplay">
+    LOADING YOUR COVID STATUS...
+  </div>
+
+
+<!--NOTIFICATIONS-->
+
+  <div class="dropup">
+	<button class="dropbtn"><img id="globe" src="images/warning.png"></button>
+    <div class="dropup-content">
+      <p id="message"><i>You are exposed!</i></p>
+      <a id="status" href="travelhistory.html">Learn more here...</a>
+    </div>
+  </div>
+  
+ <script src="scripts/notification.js"></script>
+ <!--
+   <div class="dropup">
+	<button class="dropbtn"><img id="globe" src="images/safe.png"></button>
+    <div class="dropup-content">
+      <p id="message"><i>You are safe!</i></p>
+      <a id="status" style = "display: none" href="travelhistory.html">Learn more here...</a>
+    </div>
+  </div>
+-->
+  <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <script src="scripts/firebase.js"> </script>
+
+
+
+  <script>
+    var loadedStatus=false;
+    var covidStatus;
+    var userID=null;
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        userID = user.uid;
+        
+        
+        db.collection('positive').get().then(function (snap) {
+        snap.forEach(function (doc) { // iterate thru collections
+          if(doc.id===userID) {
+            covidStatus=doc.data().isPositive;
+          }
+        });
+          
+        loadedStatus=true;
+        if(covidStatus) {
+          $('#covidStatusDisplay').text("You are Covid-Positive");
+        } else {
+          $('#covidStatusDisplay').text("You are Covid-Negative");
+        }
+
+      });
+        
+        
+        
+      } else {
+        // No user is signed in.
+      }
+    });
+
+    
+    
+
+    
+    
+    $(document).on('click','#declare',function(event){
+      if((loadedStatus)&&(!covidStatus))
+      {
+        if (confirm("Are you sure you want to declare yourself Covid-Positive?")) {
+          //user decided to declare covid positive
+          covidStatus=true;
+          var docData = {
+            isPositive: true,
+          };
+
+          db.collection('positive').doc(userID).set(docData);
+          $('#covidStatusDisplay').text("You are Covid-Positive");
+          
+          addPointsToInfectedFolder();
+        } else {
+          //user decided not to declare covid positive        
+        }
+      }
+
+    })
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    function addPointsToInfectedFolder()
+    {
+      db.collection(userID + ' tracking').get().then(function (snap) {
+          var i = 0;
+          var dbReadDataLat = [];
+          var dbReadDataLon = [];
+          var dbReadDataTimeStamp = [];
+          snap.forEach(function (doc) { // iterate thru collections
+            dbReadDataLat[i] = doc.data().lat;
+            dbReadDataLon[i] = doc.data().lon;
+            dbReadDataTimeStamp[i] = doc.data().timeStamp;
+
+            i += 1;
+          });
+          
+          //dbReadDataLat, dbReadDataLon, and dbReadDataTimeStamp are now filled up
+          //we now need to loop through them and add the points into the database
+          //3600000   = one hour in time stamps
+          for(i=0;i<dbReadDataTimeStamp.length;i++) {
+              var docData = {
+              lat: dbReadDataLat[i],
+              lon: dbReadDataLon[i],
+              tim: dbReadDataTimeStamp[i],
+              uid: userID
+            };
+            var timeStampHour=Math.floor(dbReadDataTimeStamp[i]/3600000.0)*3600000;
+
+            db.collection('infected '+timeStampHour.toString()).doc(userID + dbReadDataTimeStamp[i]).set(docData);
+            
+            
+            
+          }
+        
+          
+          
+          
+        });
+      
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    //Logout function
+    $("#logoutButton").on('click', function () {
+      firebase.auth().signOut().then(function () {
+        //console.log("Singout Successful");
+        window.location.href = "index.html";
+      }, function (error) {
+        //console.log("Some error occured");
+      });
+    })
+    
+
+    
+  </script>
+
+</body>
+
+</html>
