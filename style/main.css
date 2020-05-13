@@ -1,6 +1,11 @@
 body {
-  background: rgb(32, 72, 106);
-  background: linear-gradient(90deg, rgba(32, 72, 106, 1) 0%, rgba(0, 131, 158, 1) 100%);
+  background-color:blue;
+  background-image:
+    radial-gradient(
+      circle at top right,
+      #20486a,
+      #00839e 70%
+    );
 } 
 /*Welcome Message styling*/
 #welcomeMessage {
@@ -15,12 +20,18 @@ body {
 
  /*Navbar styling*/
  #navbarCollapse>div>a{
-  padding-left:10vw;
+  padding-bottom: 0px;
+  padding-left:8vw;
+  font-size: larger;
 }
 
 #picture{
   width:23vh;
   height:5vh;
+}
+#picture:active{
+  opacity: 0.5;
+
 }
 
 
@@ -116,4 +127,8 @@ body {
     width: 50%;
     height: 450px;
     background: grey;
+}
+
+@media all and (max-width:600px){
+  
 }

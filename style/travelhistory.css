@@ -1,22 +1,30 @@
  /*Navbar styling*/
  #navbarCollapse>div>a{
-  padding-left:10vw;
+  padding-bottom: 0px;
+  padding-left:8vw;
+  font-size: larger;
 }
 
 #picture{
   width:23vh;
   height:5vh;
 }
- 
+
 body {
-  background: rgb(32, 72, 106);
-  background: linear-gradient(90deg, rgba(32, 72, 106, 1) 0%, rgba(0, 131, 158, 1) 100%);
+  background-color:blue;
+  background-image:
+    radial-gradient(
+      circle at top right,
+      #20486a,
+      #00839e 70%
+    );
 } 
 
 #welcomeMessage {
   position: relative;
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
   padding-bottom:1%;
+  padding-top: 3%;
   text-align: center;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;

@@ -4,28 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style/notification.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style/travelhistory.css">
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  </script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
   
   
   
@@ -73,9 +75,9 @@
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav">
-        <a href="#" class="nav-item nav-link" onclick="window.location='about.html'">About us</a>
-        <a href="#" class="nav-item nav-link" onclick="window.location='travelhistory.html'">Travel History</a>
-        <a href="#" class="nav-item nav-link">Declare COVID Positive</a>
+        <a href="about.html" class="nav-item nav-link" onclick="window.location='about.html'">About us</a>
+        <a href="travelhistory.html" class="nav-item nav-link" onclick="window.location='travelhistory.html'">Travel History</a>
+        <a href="declarePositive.html" class="nav-item nav-link">Declare COVID Positive</a>
         <a href="#" class="nav-item nav-link">Resources</a>
         <a href="#" id="logoutButton" class="nav-item nav-link">Logout</a>
       </div>
@@ -208,12 +210,28 @@
           }
           
           
+
+          
           var newHtml = "";
           for (i = 0; i < timeGroups; i++) {
-            var s = new Date(timeLineTiS[i][0]).toLocaleDateString("en-US") +" "+ new Date(timeLineTiS[i][0]).toLocaleTimeString("en-US");
-            newHtml +="<div class='btnContainer'>"
-            newHtml += "<button type='button' class='travelHistoryButton' name='" + i.toString() + "'>"+ s +"</button>";
-            newHtml +="</div>"
+            //check if the points on the map are too close together
+            var tooCloseTogether=true;
+            var f;
+            for (f = 1; f < timeLineTiS[i].length; f++) {
+              var distanceBetween=Math.sqrt(Math.pow(timeLineLat[i][f]-timeLineLat[i][f-1],2)+Math.pow(timeLineLon[i][f]-timeLineLon[i][f-1],2));
+              if(distanceBetween>0.000001) {
+                tooCloseTogether=false;
+                break;
+              }
+            }
+            
+            
+            if(!tooCloseTogether) {
+              var s = new Date(timeLineTiS[i][0]).toLocaleDateString("en-US") +" "+ new Date(timeLineTiS[i][0]).toLocaleTimeString("en-US");
+              newHtml +="<div class='btnContainer'>"
+              newHtml += "<button type='button' class='travelHistoryButton' name='" + i.toString() + "'>"+ s +"</button>";
+              newHtml +="</div>"
+            }
           }
           $('#routeButtonHolder').html(newHtml);
 

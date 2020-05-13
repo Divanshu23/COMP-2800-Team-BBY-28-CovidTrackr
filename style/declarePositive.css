@@ -1,0 +1,31 @@
+body {
+  background: rgb(32, 72, 106);
+  background: linear-gradient(90deg, rgba(32, 72, 106, 1) 0%, rgba(0, 131, 158, 1) 100%);
+} 
+
+
+ /*Navbar styling*/
+ #navbarCollapse>div>a{
+  padding-left:10vw;
+}
+
+#picture{
+  width:23vh;
+  height:5vh;
+}
+
+
+#declare {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#covidStatusDisplay {
+  color: black;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20pt;
+  font-weight: 800;
+}
