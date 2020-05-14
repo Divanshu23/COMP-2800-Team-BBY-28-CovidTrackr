@@ -114,7 +114,7 @@
   <script>
     const welcome = document.getElementById("welcomeMessage");
     db.collection("users").onSnapshot(function (querySnapshot) {
-      welcome.innerHTML = "<i>" + firebase.auth().currentUser.displayName + ": Travel History </i>";
+      welcome.innerHTML = "<i>" + firebase.auth().currentUser.displayName + ": Encounters </i>";
     });
     $("#welcomeMessage").css('color', 'white');
   </script>
