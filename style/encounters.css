@@ -1,5 +1,5 @@
  /*Navbar styling*/
- #navbarCollapse>div>a{
+ #navbarCollapse>div>a {
   padding-bottom: 0px;
   padding-left: 5vw;
   font-size: larger;
@@ -9,26 +9,20 @@
   width:23vh;
   height:5vh;
 }
-
-#picture:active{
-  opacity: 0.5;
-
-}
+ 
 body {
-  background-color:blue;
+  background-color: blue;
   background-image:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       #20486a,
-      #00839e 70%
-    );
-} 
+      #00839e 70%);
+}
+
 
 #welcomeMessage {
   position: relative;
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
   padding-bottom:1%;
-  padding-top: 3%;
   text-align: center;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;

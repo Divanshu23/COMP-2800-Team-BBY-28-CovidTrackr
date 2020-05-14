@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style/notification.css">
-  <link rel="stylesheet" type="text/css" href="style/travelhistory.css">
+  <link rel="stylesheet" type="text/css" href="style/encounters.css">
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -15,8 +15,6 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-
-
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
   </script>
@@ -28,6 +26,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
 
 
 
@@ -79,12 +79,11 @@
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav">
-        <a href="about.html" class="nav-item nav-link" onclick="window.location='about.html'">About us</a>
-        <a href="travelhistory.html" class="nav-item nav-link" onclick="window.location='travelhistory.html'">Travel
-          History</a>
+        <a href="about.html" class="nav-item nav-link">About us</a>
+        <a href="travelhistory.html" class="nav-item nav-link">Travel History</a>
         <a href="encounters.html" class="nav-item nav-link">Encounters</a>
         <a href="declarePositive.html" class="nav-item nav-link">Declare COVID Positive</a>
-        <a href="resources.html" class="nav-item nav-link"> Resources</a>
+        <a href="resources.html" class="nav-item nav-link">Resources</a>
         <a href="#" id="logoutButton" class="nav-item nav-link">Logout</a>
       </div>
     </div>
@@ -100,7 +99,6 @@
     <br>
     <div id="routeButtonHolder">Loading History...</div>
   </div>
-
 
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/popper/popper.min.js"></script>
@@ -132,6 +130,15 @@
     var minPositionLon;
     var maxPositionLon;
     var timeGroupSize;
+    var infectionTimeList = [];
+    var infectedStartCount;
+    var infectedEndCount;
+    var infectedListLat = [];
+    var infectedListLon = [];
+    var infectedListTim = [];
+    var encountersLat;
+    var encountersLon;
+    var encountersTim;
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         //user is logged in
@@ -216,14 +223,11 @@
           }
 
 
-
-
-          var newHtml = "";
-          for (i = 0; i < timeGroups; i++) {
+          for (i = 0; i < timeLineTiS.length; i++) {
             //check if the points on the map are too close together
             var tooCloseTogether = true;
             var f;
-            for (f = 1; f < timeLineTiS[i].length; f++) {
+            for (f = 1; f < timeGroupSize[i]; f++) {
               var distanceBetween = Math.sqrt(Math.pow(timeLineLat[i][f] - timeLineLat[i][f - 1], 2) + Math.pow(
                 timeLineLon[i][f] - timeLineLon[i][f - 1], 2));
               if (distanceBetween > 0.000001) {
@@ -232,19 +236,112 @@
               }
             }
 
-
-            if (!tooCloseTogether) {
-              var s = new Date(timeLineTiS[i][0]).toLocaleDateString("en-US") + " " + new Date(timeLineTiS[i][
-                0]).toLocaleTimeString("en-US");
-              newHtml += "<div class='btnContainer'>"
-              newHtml += "<button type='button' class='travelHistoryButton' name='" + i.toString() + "'>" + s +
-                "</button>";
-              newHtml += "</div>"
+            if (tooCloseTogether) {
+              timeLineLat.splice(i, 1);
+              timeLineLon.splice(i, 1);
+              timeLineTiS.splice(i, 1);
+              minPositionLat.splice(i, 1);
+              maxPositionLat.splice(i, 1);
+              minPositionLon.splice(i, 1);
+              maxPositionLon.splice(i, 1);
+              timeGroupSize.splice(i, 1);
+              i--;
             }
           }
+
+          var newHtml = "";
+          for (i = 0; i < timeLineTiS.length; i++) {
+            var s = new Date(timeLineTiS[i][0]).toLocaleDateString("en-US") + " " + new Date(timeLineTiS[i][0])
+              .toLocaleTimeString("en-US");
+            newHtml += "<div class='btnContainer'>"
+            newHtml += "<button type='button' class='travelHistoryButton' name='" + i.toString() + "'>" + s +
+              "</button>";
+            newHtml += "</div>"
+          }
+
           $('#routeButtonHolder').html(newHtml);
 
 
+          //buttons have been made next get a list of all of the infection times that have to be loaded
+          infectionTimeList = [];
+          for (i = 0; i < timeLineTiS.length; i++) {
+            var f;
+            for (f = 0; f < timeGroupSize[i]; f++) {
+              var inList = false;
+              var currentRoundedTime = Math.floor(timeLineTiS[i][f] / 3600000.0) * 3600000
+              var g;
+              for (g = 0; g < infectionTimeList.length; g++) {
+                if (currentRoundedTime == infectionTimeList[g]) {
+                  inList = true;
+                  break;
+                }
+              }
+              //this time is not in the list so add it to the list
+              if (!inList) {
+                infectionTimeList.push(currentRoundedTime);
+              }
+            }
+          }
+
+
+          //currentRoundedTime is now full of all of the infected time collections we will need to read from the server
+
+          infectedStartCount = 0;
+          infectedEndCount = 0;
+          infectedListLat = [];
+          infectedListLon = [];
+          infectedListTim = [];
+          for (i = 0; i < infectionTimeList.length; i++) {
+            db.collection('infected ' + infectionTimeList[i].toString()).get().then(function (snap) {
+              var loadID = infectedStartCount++;
+              snap.forEach(function (doc) { // iterate thru collections
+                //UID CHECK HERE
+                //doc.data.uid != userID
+                infectedListLat.push(doc.data().lat);
+                infectedListLon.push(doc.data().lon);
+                infectedListTim.push(doc.data().tim);
+              });
+
+
+              //check if the infected arrays are full
+              if (++infectedEndCount == infectionTimeList.length) {
+                //the 3 infected arrays are full here:
+                console.log(infectedListTim.length);
+
+                encountersLat = createArray(timeLineTiS.length, 0);
+                encountersLon = createArray(timeLineTiS.length, 0);
+                encountersTim = createArray(timeLineTiS.length, 0);
+
+
+                var a;
+                for (a = 0; a < timeLineTiS.length; a++) {
+                  var b;
+                  for (b = 0; b < timeGroupSize[a]; b++) {
+                    var c;
+                    for (c = 0; c < infectedListTim.length; c++) {
+                      //SETUP:  timeLineTiS[a][b] timeLineLat[a][b] timeLineLon[a][b] infectedListTim[c]  infectedListLat[c]  infectedListLon[c]
+                      //encountersTim encountersLat encountersLon
+                      //check for points that are within 100 meters and within 1min apart from each other
+                      if ((measure(timeLineLat[a][b], timeLineLon[a][b], infectedListLat[c],
+                          infectedListLon[c]) <= 100.0) &&
+                        ((Math.abs(timeLineTiS[a][b] - infectedListTim[c])) <= 60 * 1000)) {
+                        //encounter!!!
+                        encountersLat[a].push(timeLineLat[a][b]);
+                        encountersLon[a].push(timeLineLon[a][b]);
+                        encountersTim[a].push(timeLineTiS[a][b]);
+                        console.log(a.toString() + " " + b.toString() + " " + c.toString());
+                        break;
+                      }
+                    }
+                  }
+                }
+
+
+              }
+            }).catch(function (error) {
+              console.log("Error getting document:", error);
+            });
+          }
 
 
         });
@@ -254,11 +351,30 @@
     });
 
 
+    //measures the distance between two lats and longs in meters
+    function measure(lat1, lon1, lat2, lon2) {
+      var R = 6378.137; // Radius of earth in KM
+      var dLat = lat2 * Math.PI / 180 - lat1 * Math.PI / 180;
+      var dLon = lon2 * Math.PI / 180 - lon1 * Math.PI / 180;
+      var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      var d = R * c;
+      return d * 1000; // meters
+    }
+
 
     //when a user travel path button has been clicked on
-    var currentPath;
+    var objectOnMap = [];
     $(document).on('click', '.travelHistoryButton', function (event) {
-      //alert($( this ).attr("name"));
+      //clear everything on the map
+      if (objectOnMap.length > 0) {
+        map.removeObjects(objectOnMap);
+        objectOnMap = [];
+      }
+
+      //get the number of the button being pressed
       var routeNum = parseInt($(this).attr("name"));
 
       var newTop = minPositionLat[routeNum];
@@ -270,13 +386,13 @@
       newLeft += (newLeft - newRight) / 4.0;
       newBottom += (newBottom - newTop) / 4.0;
       newRight += (newRight - newLeft) / 4.0;
-
+      //move the view of the map
       var bbox = new H.geo.Rect(newTop, newLeft, newBottom, newRight);
       map.getViewModel().setLookAtData({
         bounds: bbox
       });
 
-
+      //connect the user's path together
       var i;
       var lineString = new H.geo.LineString();
       for (i = 0; i < timeGroupSize[routeNum]; i++) {
@@ -286,14 +402,38 @@
         });
       }
 
-      if (currentPath)
-        map.removeObject(currentPath);
-      currentPath = new H.map.Polyline(lineString, {
+      //add the user's path to the map buffer
+      objectOnMap.push(new H.map.Polyline(lineString, {
         style: {
           lineWidth: 4
         }
-      });
-      map.addObject(currentPath);
+      }));
+
+
+      //add the circles of encounter to the map
+      //encountersLat[a][b];
+      //encountersLon[a][b]);
+      for (i = 0; i < encountersTim[routeNum].length; i++) {
+        objectOnMap.push(new H.map.Circle({
+            lat: encountersLat[routeNum][i],
+            lng: encountersLon[routeNum][i]
+          },
+          // The radius of the circle in meters
+          100, {
+            style: {
+              strokeColor: 'rgba(0, 0, 0, 0.6)', // Color of the perimeter
+              lineWidth: 2,
+              fillColor: 'rgba(128, 0, 0, 0.4)' // Color of the circle
+            }
+          }
+        ));
+      }
+
+
+      //add the objects in the buffer onto the map
+      for (i = 0; i < objectOnMap.length; i++)
+        map.addObject(objectOnMap[i]);
+
 
     });
 

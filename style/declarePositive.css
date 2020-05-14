@@ -1,0 +1,35 @@
+body {
+  background-color: blue;
+  background-image:
+    radial-gradient(circle at top right,
+      #20486a,
+      #00839e 70%);
+}
+
+
+
+ /*Navbar styling*/
+ #navbarCollapse>div>a{
+  padding-left: 5vw;
+}
+
+#picture{
+  width:23vh;
+  height:5vh;
+}
+
+
+#declare {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#covidStatusDisplay {
+  color: black;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20pt;
+  font-weight: 800;
+}
