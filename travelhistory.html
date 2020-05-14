@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style/notification.css">
   <link rel="stylesheet" type="text/css" href="style/travelhistory.css">
-
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 
 
-   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
   </script>
 
@@ -28,33 +28,37 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
-  
-  
-  
-  
-  
-  <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
-      <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
- <!-- <script type="text/javascript" >window.ENV_VARIABLE = 'https://developer.here.com'</script> -->
-  
-  <script src='https://developer.here.com/javascript/src/iframeheight.js'></script>
-  
 
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  <!-- <script type="text/javascript" >window.ENV_VARIABLE = 'https://developer.here.com'</script> -->
+
+  <script src='https://developer.here.com/javascript/src/iframeheight.js'></script>
+
+
+
+
+
+
+
+
   <!--Disables the back button of the browser.-->
   <script type="text/javascript">
-    function preventBack() { window.history.forward(); }
+    function preventBack() {
+      window.history.forward();
+    }
     setTimeout("preventBack()", 0);
-    window.onunload = function () { null };
+    window.onunload = function () {
+      null
+    };
   </script>
 
 
@@ -76,25 +80,35 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav">
         <a href="about.html" class="nav-item nav-link" onclick="window.location='about.html'">About us</a>
-        <a href="travelhistory.html" class="nav-item nav-link" onclick="window.location='travelhistory.html'">Travel History</a>
+        <a href="travelhistory.html" class="nav-item nav-link" onclick="window.location='travelhistory.html'">Travel
+          History</a>
+        <a href="encounters.html" class="nav-item nav-link">Encounters</a>
         <a href="declarePositive.html" class="nav-item nav-link">Declare COVID Positive</a>
-        <a href="resources.html" class="nav-item nav-link" onclick="window.location='resources.html'"> Resources</a>
+        <a href="resources.html" class="nav-item nav-link"> Resources</a>
         <a href="#" id="logoutButton" class="nav-item nav-link">Logout</a>
       </div>
     </div>
   </nav>
 
 
-<div>
-  <h1 id="welcomeMessage"></h1>
+  <div>
+    <h1 id="welcomeMessage"></h1>
 
-  <div id="mapContainer">
-  <div id="map"></div>
+    <div id="mapContainer">
+      <div id="map"></div>
+    </div>
+    <br>
+    <div id="routeButtonHolder">Loading History...</div>
   </div>
-  <br>
-  <div id="routeButtonHolder">Loading History...</div>
-</div>
-  
+
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/popper/popper.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/theme/js/script.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
@@ -105,13 +119,11 @@
     db.collection("users").onSnapshot(function (querySnapshot) {
       welcome.innerHTML = "<i>" + firebase.auth().currentUser.displayName + ": Travel History </i>";
     });
-    $("#welcomeMessage").css('color','white');
+    $("#welcomeMessage").css('color', 'white');
   </script>
 
 
   <script>
-
-    
     var timeLineLat;
     var timeLineLon;
     var timeLineTiS;
@@ -120,13 +132,13 @@
     var minPositionLon;
     var maxPositionLon;
     var timeGroupSize;
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         //user is logged in
         var curDate = new Date();
         var curTime = curDate.getTime();
         var userID = user.uid;
-        
+
 
         db.collection(userID + ' tracking').get().then(function (snap) {
           var i = 0;
@@ -140,7 +152,7 @@
 
             i += 1;
           });
-          
+
           //dbReadDataLat, dbReadDataLon, and dbReadDataTimeStamp are now filled up
           //first we will loop through dbReadDataTimeStamp and find out how many time groups there are
           var timeGroups = 0;
@@ -148,21 +160,19 @@
           var currentTime = 0;
           timeGroupSize = [];
           var largestTimeGroup = 0;
-          for(i=0;i<dbReadDataTimeStamp.length;i++)
-          {
+          for (i = 0; i < dbReadDataTimeStamp.length; i++) {
             currentTime = dbReadDataTimeStamp[i];
             //check if there has been a 5min jump or more
-            if(currentTime > previousTime + 1000 * 60 * 5) {
+            if (currentTime > previousTime + 1000 * 60 * 5) {
               timeGroups++;
-              timeGroupSize[timeGroups-1]=0;
+              timeGroupSize[timeGroups - 1] = 0;
             }
-            timeGroupSize[timeGroups-1]++;
+            timeGroupSize[timeGroups - 1]++;
 
-            if(timeGroupSize[timeGroups-1]>largestTimeGroup)
-            {
-              largestTimeGroup=timeGroupSize[timeGroups-1];
+            if (timeGroupSize[timeGroups - 1] > largestTimeGroup) {
+              largestTimeGroup = timeGroupSize[timeGroups - 1];
             }
-            
+
             previousTime = currentTime;
           }
 
@@ -176,82 +186,81 @@
           maxPositionLat = [];
           minPositionLon = [];
           maxPositionLon = [];
-          
-          var loopCounter=0;
+
+          var loopCounter = 0;
           var f;
-          for(i=0;i<timeGroups;i++){
+          for (i = 0; i < timeGroups; i++) {
             minPositionLat[i] = 1000.0;
             maxPositionLat[i] = -1000.0;
             minPositionLon[i] = 1000.0;
             maxPositionLon[i] = -1000.0;
-            for(f=0;f<timeGroupSize[i];f++){
-              timeLineLat[i][f]=dbReadDataLat[loopCounter];
-              timeLineLon[i][f]=dbReadDataLon[loopCounter];
-              timeLineTiS[i][f]=dbReadDataTimeStamp[loopCounter];
-              if(dbReadDataLat[loopCounter]<minPositionLat[i])
-              {
-                minPositionLat[i]=dbReadDataLat[loopCounter];
+            for (f = 0; f < timeGroupSize[i]; f++) {
+              timeLineLat[i][f] = dbReadDataLat[loopCounter];
+              timeLineLon[i][f] = dbReadDataLon[loopCounter];
+              timeLineTiS[i][f] = dbReadDataTimeStamp[loopCounter];
+              if (dbReadDataLat[loopCounter] < minPositionLat[i]) {
+                minPositionLat[i] = dbReadDataLat[loopCounter];
               }
-              if(dbReadDataLat[loopCounter]>maxPositionLat[i])
-              {
-                maxPositionLat[i]=dbReadDataLat[loopCounter];
+              if (dbReadDataLat[loopCounter] > maxPositionLat[i]) {
+                maxPositionLat[i] = dbReadDataLat[loopCounter];
               }
-              if(dbReadDataLon[loopCounter]<minPositionLon[i])
-              {
-                minPositionLon[i]=dbReadDataLon[loopCounter];
+              if (dbReadDataLon[loopCounter] < minPositionLon[i]) {
+                minPositionLon[i] = dbReadDataLon[loopCounter];
               }
-              if(dbReadDataLon[loopCounter]>maxPositionLon[i])
-              {
-                maxPositionLon[i]=dbReadDataLon[loopCounter];
+              if (dbReadDataLon[loopCounter] > maxPositionLon[i]) {
+                maxPositionLon[i] = dbReadDataLon[loopCounter];
               }
-              
+
               loopCounter++;
             }
           }
-          
-          
 
-          
+
+
+
           var newHtml = "";
           for (i = 0; i < timeGroups; i++) {
             //check if the points on the map are too close together
-            var tooCloseTogether=true;
+            var tooCloseTogether = true;
             var f;
             for (f = 1; f < timeLineTiS[i].length; f++) {
-              var distanceBetween=Math.sqrt(Math.pow(timeLineLat[i][f]-timeLineLat[i][f-1],2)+Math.pow(timeLineLon[i][f]-timeLineLon[i][f-1],2));
-              if(distanceBetween>0.000001) {
-                tooCloseTogether=false;
+              var distanceBetween = Math.sqrt(Math.pow(timeLineLat[i][f] - timeLineLat[i][f - 1], 2) + Math.pow(
+                timeLineLon[i][f] - timeLineLon[i][f - 1], 2));
+              if (distanceBetween > 0.000001) {
+                tooCloseTogether = false;
                 break;
               }
             }
-            
-            
-            if(!tooCloseTogether) {
-              var s = new Date(timeLineTiS[i][0]).toLocaleDateString("en-US") +" "+ new Date(timeLineTiS[i][0]).toLocaleTimeString("en-US");
-              newHtml +="<div class='btnContainer'>"
-              newHtml += "<button type='button' class='travelHistoryButton' name='" + i.toString() + "'>"+ s +"</button>";
-              newHtml +="</div>"
+
+
+            if (!tooCloseTogether) {
+              var s = new Date(timeLineTiS[i][0]).toLocaleDateString("en-US") + " " + new Date(timeLineTiS[i][
+                0]).toLocaleTimeString("en-US");
+              newHtml += "<div class='btnContainer'>"
+              newHtml += "<button type='button' class='travelHistoryButton' name='" + i.toString() + "'>" + s +
+                "</button>";
+              newHtml += "</div>"
             }
           }
           $('#routeButtonHolder').html(newHtml);
 
-          
-          
-          
+
+
+
         });
       } else {
         //user is not logged in
       }
     });
 
-    
-    
+
+
     //when a user travel path button has been clicked on
     var currentPath;
-    $(document).on('click','.travelHistoryButton',function(event){
+    $(document).on('click', '.travelHistoryButton', function (event) {
       //alert($( this ).attr("name"));
-      var routeNum = parseInt($( this ).attr("name"));
-      
+      var routeNum = parseInt($(this).attr("name"));
+
       var newTop = minPositionLat[routeNum];
       var newLeft = minPositionLon[routeNum];
       var newBottom = maxPositionLat[routeNum];
@@ -261,27 +270,33 @@
       newLeft += (newLeft - newRight) / 4.0;
       newBottom += (newBottom - newTop) / 4.0;
       newRight += (newRight - newLeft) / 4.0;
-      
-      var bbox = new H.geo.Rect(newTop,newLeft,newBottom,newRight);
+
+      var bbox = new H.geo.Rect(newTop, newLeft, newBottom, newRight);
       map.getViewModel().setLookAtData({
         bounds: bbox
       });
-      
-      
+
+
       var i;
       var lineString = new H.geo.LineString();
-      for(i=0;i<timeGroupSize[routeNum];i++)
-      {
-        lineString.pushPoint({lat:timeLineLat[routeNum][i].toString(), lng:timeLineLon[routeNum][i].toString()});
+      for (i = 0; i < timeGroupSize[routeNum]; i++) {
+        lineString.pushPoint({
+          lat: timeLineLat[routeNum][i].toString(),
+          lng: timeLineLon[routeNum][i].toString()
+        });
       }
-      
-      if(currentPath)
+
+      if (currentPath)
         map.removeObject(currentPath);
-      currentPath = new H.map.Polyline(lineString, { style: { lineWidth: 4 }});
+      currentPath = new H.map.Polyline(lineString, {
+        style: {
+          lineWidth: 4
+        }
+      });
       map.addObject(currentPath);
-      
+
     });
-    
+
 
 
     //Logout function
@@ -293,8 +308,8 @@
         //console.log("Some error occured");
       });
     })
-    
-    
+
+
     //Multi D Array Creation
     function createArray(length) {
       var arr = new Array(length || 0),
@@ -302,13 +317,13 @@
 
       if (arguments.length > 1) {
         var args = Array.prototype.slice.call(arguments, 1);
-        while(i--) arr[length-1 - i] = createArray.apply(this, args);
+        while (i--) arr[length - 1 - i] = createArray.apply(this, args);
       }
 
       return arr;
     }
-    
-    
+
+
 
     /**
      * Boilerplate map initialization code starts below:
@@ -323,11 +338,14 @@
 
     //Step 2: initialize a map - this map is centered over Europe
     var map = new H.Map(document.getElementById('map'),
-      defaultLayers.vector.normal.map,{
-      center: {lat:52, lng:5},
-      zoom: 5,
-      pixelRatio: window.devicePixelRatio || 1
-    });
+      defaultLayers.vector.normal.map, {
+        center: {
+          lat: 52,
+          lng: 5
+        },
+        zoom: 5,
+        pixelRatio: window.devicePixelRatio || 1
+      });
     // add a resize listener to make sure that the map occupies the whole container
     window.addEventListener('resize', () => map.getViewPort().resize());
 
@@ -338,10 +356,6 @@
 
     // Create the default UI components
     var ui = H.ui.UI.createDefault(map, defaultLayers);
-
-
-    
-    
   </script>
 
 </body>
