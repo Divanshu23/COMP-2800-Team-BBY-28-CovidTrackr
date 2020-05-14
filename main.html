@@ -63,6 +63,7 @@
       <div class="navbar-nav">
         <a href="about.html" class="nav-item nav-link">About us</a>
         <a href="travelhistory.html" class="nav-item nav-link">Travel History</a>
+        <a href="encounters.html" class="nav-item nav-link">Encounters</a>
         <a href="declarePositive.html" class="nav-item nav-link">Declare COVID Positive</a>
         <a href="resources.html" class="nav-item nav-link">Resources</a>
         <a href="#" id="logoutButton" class="nav-item nav-link">Logout</a>
@@ -128,12 +129,10 @@
 
 
   <script>
-    var myTimeout = setTimeout(function () {
+    $('#picture').mousedown(function () {
+    myTimeout = setTimeout(function () {
         window.location.href = "./play/easterEgg.html";
       }, 4000);
-
-    $('#picture').mousedown(function () {
-    myTimeout;
     });
 
     $('#picture').mouseup(function () {

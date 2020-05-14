@@ -1,35 +1,35 @@
 body {
-  background-color:blue;
+  background-color: blue;
   background-image:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       #20486a,
-      #00839e 70%
-    );
-} 
+      #00839e 70%);
+}
+
 /*Welcome Message styling*/
 #welcomeMessage {
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-  padding-top:3%;
+  padding-top: 3%;
   text-align: center;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
   color: #e0dfdc;
-    letter-spacing: .1em;
-  }
+  letter-spacing: .1em;
+}
 
- /*Navbar styling*/
- #navbarCollapse>div>a{
+/*Navbar styling*/
+#navbarCollapse>div>a {
   padding-bottom: 0px;
-  padding-left:8vw;
+  padding-left: 5vw;
   font-size: larger;
 }
 
-#picture{
-  width:23vh;
-  height:5vh;
+#picture {
+  width: 23vh;
+  height: 5vh;
 }
-#picture:active{
+
+#picture:active {
   opacity: 0.5;
 
 }
@@ -51,84 +51,82 @@ body {
 
 
 .trackMe {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #15317E;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 28px;
-    padding: 20px;
-    width: 300px;
-    cursor: pointer;
-    transition: all 0.5s;
-    margin: 5px;
-  }
-  
-  .trackMe span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-    
-  }
-  
-  .trackMe span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-  .trackME:hover span {
-    padding-right: 20px;
-   
-  }
-  
-  .trackMe:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #15317E;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 300px;
+  cursor: pointer;
+  transition: all 0.5s;
+  margin: 5px;
+}
 
-#stopTrackingMe{
+.trackMe span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+
+}
+
+.trackMe span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.trackMe:hover span {
+  padding-right: 20px;
+
+}
+
+.trackMe:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#stopTrackingMe {
   background-color: #7E1515;
   display: none;
 }
 
-#extendTrackingMe{
+#extendTrackingMe {
   background-color: #157E15;
   display: none;
 }
 
 
 
-  #readButton{
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #15317E;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 28px;
-    padding: 20px;
-    width: 250px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-  }
+#readButton {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #15317E;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
 
-  #readbutton:hover{
-    background-color: #3090C7;
-  }
+#readbutton:hover {
+  background-color: #3090C7;
+}
 
 #map {
-    width: 50%;
-    height: 450px;
-    background: grey;
+  width: 50%;
+  height: 450px;
+  background: grey;
 }
 
-@media all and (max-width:600px){
-  
-}
+@media all and (max-width:600px) {}

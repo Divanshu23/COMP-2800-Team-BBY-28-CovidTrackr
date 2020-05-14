@@ -1,7 +1,7 @@
  /*Navbar styling*/
  #navbarCollapse>div>a{
   padding-bottom: 0px;
-  padding-left:8vw;
+  padding-left: 5vw;
   font-size: larger;
 }
 
@@ -10,6 +10,10 @@
   height:5vh;
 }
 
+#picture:active{
+  opacity: 0.5;
+
+}
 body {
   background-color:blue;
   background-image:
