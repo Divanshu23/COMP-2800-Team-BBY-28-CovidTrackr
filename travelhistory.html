@@ -62,7 +62,7 @@
   </script>
 
 
-  <title>Covid Blocker</title>
+  <title>Covid Trackr</title>
 </head>
 
 <body>
@@ -235,7 +235,8 @@
 
             if (!tooCloseTogether) {
               var s = new Date(timeLineTiS[i][0]).toLocaleDateString("en-US") + " " + new Date(timeLineTiS[i][
-                0]).toLocaleTimeString("en-US");
+                0
+              ]).toLocaleTimeString("en-US");
               newHtml += "<div class='btnContainer'>"
               newHtml += "<button type='button' class='travelHistoryButton' name='" + i.toString() + "'>" + s +
                 "</button>";

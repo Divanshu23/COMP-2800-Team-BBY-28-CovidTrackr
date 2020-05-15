@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Covid Blocker</title>
+    <title>Covid Trackr
+    </title>
     <meta name="comp1800 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
 
@@ -27,11 +28,15 @@
     <link rel="icon" href="images/favicon.png">
 
     <!--Diables the back button of the browser-->
-    <script type="text/javascript" >
-        function preventBack(){window.history.forward();}
-         setTimeout("preventBack()", 0);
-         window.onunload=function(){null};
-     </script>
+    <script type="text/javascript">
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () {
+            null
+        };
+    </script>
 
 </head>
 
@@ -42,15 +47,15 @@
 
 
     <div id="container">
-    <nav class="navbar navbar-expand-sm bg-dark justify-content-center">
+        <nav class="navbar navbar-expand-sm bg-dark justify-content-center">
 
-        <!-- Links -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#"><img id="picture" src="images/logo2.png" alt="CovidTrackr"></a>
-          </li>
-        </ul>
-      </nav>
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><img id="picture" src="images/logo2.png" alt="CovidTrackr"></a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
     <div id="firebaseui-auth-container"></div>
@@ -70,7 +75,7 @@
     </script>
 
 
-     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
@@ -139,7 +144,7 @@
             signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
                 //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
                 //firebase.auth.GithubAuthProvider.PROVIDER_ID,
                 firebase.auth.EmailAuthProvider.PROVIDER_ID,
