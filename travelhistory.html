@@ -132,6 +132,7 @@
     var minPositionLon;
     var maxPositionLon;
     var timeGroupSize;
+    var travelHistoryTimes = [];
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         //user is logged in
@@ -149,9 +150,25 @@
             dbReadDataLat[i] = doc.data().lat;
             dbReadDataLon[i] = doc.data().lon;
             dbReadDataTimeStamp[i] = doc.data().timeStamp;
+            travelHistoryTimes.push(doc.data().timeStamp);
 
             i += 1;
           });
+          
+          //ONLY STORE 2 WEEKS WORTH OF TRAVEL HISTORY
+          var curDate = new Date();
+          var curTime = curDate.getTime();
+          //look for old travel data to delete
+          for(i=0;i<travelHistoryTimes.length;i++){
+            //1000 * 60 * 60 * 24 * 7 * 2 = two weeks 
+            if(travelHistoryTimes[i]+ 1000 * 60 * 60 * 24 * 7 * 2 < curTime){
+              db.collection(userID + ' tracking').doc(travelHistoryTimes[i].toString()).delete().then(function() {
+                //console.log("Document successfully deleted!");
+              }).catch(function(error) {
+                //console.error("Error removing document: ", error);
+              });
+            }
+          }
 
           //dbReadDataLat, dbReadDataLon, and dbReadDataTimeStamp are now filled up
           //first we will loop through dbReadDataTimeStamp and find out how many time groups there are
@@ -254,6 +271,8 @@
     });
 
 
+    
+    
 
     //when a user travel path button has been clicked on
     var currentPath;
