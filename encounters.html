@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
   </script>
@@ -112,7 +113,7 @@
   <script>
     const welcome = document.getElementById("welcomeMessage");
     db.collection("users").onSnapshot(function (querySnapshot) {
-      welcome.innerHTML = "<i>" + firebase.auth().currentUser.displayName + ": Travel History </i>";
+      welcome.innerHTML = "<i>" + firebase.auth().currentUser.displayName + ": Encounters </i>";
     });
     $("#welcomeMessage").css('color', 'white');
   </script>
