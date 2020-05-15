@@ -1,12 +1,11 @@
-
- /*Navbar styling*/
- #navbarCollapse>div>a{
+/*Navbar styling*/
+#navbarCollapse>div>a {
   padding-bottom: 0px;
-  padding-left:5vw;
+  padding-left: 5vw;
   font-size: larger;
 }
 
-#picture{
-  width:23vh;
-  height:5vh;
+#picture {
+  width: 23vh;
+  height: 5vh;
 }

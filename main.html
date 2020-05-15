@@ -130,7 +130,7 @@
 
   <script>
     $('#picture').mousedown(function () {
-    myTimeout = setTimeout(function () {
+      myTimeout = setTimeout(function () {
         window.location.href = "./play/easterEgg.html";
       }, 4000);
     });
@@ -143,13 +143,13 @@
 
     $('#picture').on('touchend', clear);
 
-    function show(){
-    setTimeout(function () {
+    function show() {
+      setTimeout(function () {
         window.location.href = "./play/easterEgg.html";
       }, 4000);
     }
 
-    function clear(){
+    function clear() {
       clearTimeout(myTimeout);
     }
 

@@ -8,14 +8,16 @@
   bottom: 10px;
   right: 10px;
 }
+
 #globe {
-	width: 25px;
-	height: 25px;
+  width: 25px;
+  height: 25px;
 }
 
 #status {
-	display: block;
+  display: block;
 }
+
 .dropup {
   position: fixed;
   display: inline-block;
@@ -26,7 +28,7 @@
 .dropup-content {
   display: none;
   position: fixed;
- right: 10px;
+  right: 10px;
   background-color: #f1f1f1;
   min-width: 160px;
   bottom: 60px;
@@ -48,7 +50,9 @@
   display: block;
 }
 
-.dropup-content a:hover {background-color: #ccc}
+.dropup-content a:hover {
+  background-color: #ccc
+}
 
 .dropup:hover .dropup-content {
   display: block;
