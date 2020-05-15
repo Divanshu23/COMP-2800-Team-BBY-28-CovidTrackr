@@ -1,0 +1,122 @@
+body {
+  background-color: blue;
+  background-image:
+    radial-gradient(circle at top right,
+      #20486a,
+      #00839e 70%);
+}
+
+
+/*Navbar styling*/
+#navbarCollapse>div>a{
+  padding-bottom: 0px;
+  padding-left: 5vw;
+  font-size: larger;
+}
+
+#picture{
+  width:23vh;
+  height:5vh;
+}
+
+
+#heading{
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  letter-spacing: .1em;
+}
+
+  /*
+  #grid1 {
+    display: grid;
+    grid-template-columns: 350px 350px;
+    grid-row: auto auto;
+  }
+
+  div button {
+    height: 50px;
+    width: 300px;
+  }
+  div button a {
+      float: left;
+  }
+*/
+  .button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #15317E;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 25px;
+    padding: 20px;
+    width: 350px;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    color: white;
+    
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 20px;
+   
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+
+  #container {
+    display: block;
+    text-align: center;
+    position: relative;
+    margin: auto;
+    top: 10%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  @media all and (min-width:1088px){
+    #container {
+      display: block;
+      text-align: center;
+      position: absolute;
+      margin: auto;
+      top: 30%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      left: 50%;
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+  
+
+
+  }
