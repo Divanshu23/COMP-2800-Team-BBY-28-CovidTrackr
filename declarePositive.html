@@ -123,7 +123,7 @@
 
   <script>
     var loadedStatus = false;
-    var covidStatus;
+    var covidStatus=false;
     var userID = null;
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
@@ -132,17 +132,28 @@
 
 
         db.collection('positive').get().then(function (snap) {
+          var foundUser = false;
           snap.forEach(function (doc) { // iterate thru collections
             if (doc.id === userID) {
               covidStatus = doc.data().isPositive;
+              foundUser = true;
             }
           });
+          
+          //user covid-19 status is not in the database so let's add them
+          if(!foundUser){
+            var docData = {
+              isPositive: false,
+            };
+
+            db.collection('positive').doc(userID).set(docData);
+          }
 
           loadedStatus = true;
           if (covidStatus) {
-            $('#covidStatusDisplay').text("You are Covid-Positive");
+            $('#covidStatusDisplay').text("You are Covid-19 Positive");
           } else {
-            $('#covidStatusDisplay').text("You are Covid-Negative");
+            $('#covidStatusDisplay').text("You are Covid-19 Negative");
           }
 
         });
@@ -161,7 +172,7 @@
 
     $(document).on('click', '#declare', function (event) {
       if ((loadedStatus) && (!covidStatus)) {
-        if (confirm("Are you sure you want to declare yourself Covid-Positive?")) {
+        if (confirm("Are you sure you want to declare yourself Covid-19 Positive?")) {
           //user decided to declare covid positive
           covidStatus = true;
           var docData = {
@@ -169,8 +180,8 @@
           };
 
           db.collection('positive').doc(userID).set(docData);
-          $('#covidStatusDisplay').text("You are Covid-Positive");
-
+          $('#covidStatusDisplay').text("You are Covid-19 Positive");
+          
           addPointsToInfectedFolder();
         } else {
           //user decided not to declare covid positive        
