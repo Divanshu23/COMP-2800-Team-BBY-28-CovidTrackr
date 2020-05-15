@@ -1,8 +1,3 @@
-//Passing Encounter matches to notification
- var poop = "3";
-// sessionStorage.setItem("test", poop);
-
-
 
 var timeLineLat;
 var timeLineLon;
