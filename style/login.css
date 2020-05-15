@@ -1,17 +1,15 @@
+#picture {
+  width: 30vh;
+}
 
-  #picture {
-    width: 30vh;
-  }
+#container {
+  padding-bottom: 10%;
+}
 
-  #container{
-    padding-bottom:10%;
-  }
-  
-  body {
-    background-color: blue;
-    background-image:
-      radial-gradient(circle at top right,
-        #20486a,
-        #00839e 70%);
-  }
-  
+body {
+  background-color: blue;
+  background-image:
+    radial-gradient(circle at top right,
+      #20486a,
+      #00839e 70%);
+}
