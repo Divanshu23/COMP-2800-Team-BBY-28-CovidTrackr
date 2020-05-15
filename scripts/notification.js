@@ -1,5 +1,7 @@
 //Pull user and location data from firebase
 
+
+
 //Checks for matches
 
 //No alerts
@@ -15,3 +17,15 @@ function alertOn(){
 	document.getElementById("status").css.display = "block";
 	document.getElementById("message").innerHTML = "<i>You are exposed!</i>";
 }
+
+// Receiving encounter matches 
+var result = sessionStorage.getItem("test");
+console.log(result);
+
+if(result > 0) {
+	alertOn();
+}
+else {
+	alertOff();
+}
+
