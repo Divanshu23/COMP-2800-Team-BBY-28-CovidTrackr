@@ -1,17 +1,25 @@
+#title {
+    padding: 5%;
+    font-size: 5vw;
+    text-align: center;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: grey;
 
-  #picture {
-    width: 30vh;
+}
+.navbar {
+    
+    overflow: hidden;
+    background-color:darkgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-
+  #picture{
+     width:20vw;
+  }
   #container{
-    padding-bottom:10%;
+      padding-bottom:10vw;
   }
   
-  body {
-    background-color: blue;
-    background-image:
-      radial-gradient(circle at top right,
-        #20486a,
-        #00839e 70%);
-  }
-  
+ 
+

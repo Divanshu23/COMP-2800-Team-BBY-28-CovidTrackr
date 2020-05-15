@@ -1,34 +1,74 @@
-#picture {
-  width: 30vh;
+.navbar img{
+    transform: translate(200%, 0%);  
 }
+.navbar {
+    overflow: hidden;
+    background-color:darkgrey;
 
-body {
-  background-color: blue;
-  background-image:
-    radial-gradient(circle at top right,
-      #20486a,
-      #00839e 70%);
-}
+  }
 
-#container {
-  display: block;
-  text-align: center;
-  width:250px;
-  height:100px;
-  position: absolute;
-  margin: auto;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  left: 50%;
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
+  #picture{
+     width:20vw;
+  }
 
-
-.btn{
-  width:250px;
-  height: 100px;
+  #buttonContainer{
+    width: 50%;
+	height: 65%;
+	background-color:#ddd;
+	
+	position: absolute;
+	top:10vw;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
+.loginButton{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #15317E;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 250px;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin: 5px;
+  }
+  
+  .loginButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    
+  }
+  
+  .loginButton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .loginButton:hover span {
+    padding-right: 20px;
+   
+  }
+  
+  .loginButton:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  
+ 

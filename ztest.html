@@ -27,7 +27,7 @@
     <p>
         The <code>map.setCenter()</code> method and <code>map.setZoom() </code>method are able to control the location of the map.<br>
     </p>
-<div id="testDiv"></div>
+
     
     
     
@@ -41,7 +41,7 @@
  */
 function moveMapToBerlin(map){
   map.setCenter({lat:52.5159, lng:13.3777});
-  map.setZoom(9);
+  map.setZoom(14);
 }
 
 /**
@@ -59,7 +59,7 @@ var defaultLayers = platform.createDefaultLayers();
 var map = new H.Map(document.getElementById('map'),
   defaultLayers.vector.normal.map,{
   center: {lat:50, lng:5},
-  zoom: 5,
+  zoom: 4,
   pixelRatio: window.devicePixelRatio || 1
 });
 // add a resize listener to make sure that the map occupies the whole container
@@ -77,99 +77,6 @@ var ui = H.ui.UI.createDefault(map, defaultLayers);
 window.onload = function () {
   moveMapToBerlin(map);
 }                  
-
-
-
-
-
-
-  var exTest = createArray(2,0);
-    exTest[0].push("lol0");   
-        exTest[0].push("lol1");
-        exTest[1].push("lol2");
-        exTest[1].push("lol3");
-  console.log(exTest);
-
-
-
-
-        
-        
-        
-        
-        
-        
-        var testCir =[];
-   testCir[0]=new H.map.Circle(
-    // The central point of the circle
-    {lat:52.5159, lng:13.3777},
-    // The radius of the circle in meters
-    10000,
-    {
-      style: {
-        strokeColor: 'rgba(55, 85, 170, 0.6)', // Color of the perimeter
-        lineWidth: 2,
-        fillColor: 'rgba(0, 128, 0, 0.7)'  // Color of the circle
-      }
-    }
-  );
-  testCir[1]= new H.map.Circle(
-    // The central point of the circle
-    {lat:52.41591, lng:13.3777},
-    // The radius of the circle in meters
-    10000,
-    {
-      style: {
-        strokeColor: 'rgba(55, 85, 170, 0.6)', // Color of the perimeter
-        lineWidth: 2,
-        fillColor: 'rgba(0, 128, 0, 0.7)'  // Color of the circle
-      }
-    }
-  );     
-          map.addObject(testCir[0]);
-              
-          map.addObject(testCir[1]);  
-        
-        
-map.removeObjects(testCir);
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    //Multi D Array Creation
-    function createArray(length) {
-      var arr = new Array(length || 0),
-        i = length;
-
-      if (arguments.length > 1) {
-        var args = Array.prototype.slice.call(arguments, 1);
-        while(i--) arr[length-1 - i] = createArray.apply(this, args);
-      }
-
-      return arr;
-    }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     
     </script>   
     

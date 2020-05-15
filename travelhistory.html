@@ -4,61 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style/notification.css">
-  <link rel="stylesheet" type="text/css" href="style/travelhistory.css">
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/tether/tether.min.css">
-  <link rel="stylesheet" href="assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style/main.css">
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-  </script>
+    </script>
 
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
+    </script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
-
-
-
-
+  
+  
+  
+  
+  
+  
   <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
-  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
-  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
-  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
-  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
-  <!-- <script type="text/javascript" >window.ENV_VARIABLE = 'https://developer.here.com'</script> -->
-
-  <script src='https://developer.here.com/javascript/src/iframeheight.js'></script>
-
-
-
-
-
-
-
-
+      <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  <script type="text/javascript" >window.ENV_VARIABLE = 'https://developer.here.com'</script><script src='https://developer.here.com/javascript/src/iframeheight.js'></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <!--Disables the back button of the browser.-->
   <script type="text/javascript">
-    function preventBack() {
-      window.history.forward();
-    }
+    function preventBack() { window.history.forward(); }
     setTimeout("preventBack()", 0);
-    window.onunload = function () {
-      null
-    };
+    window.onunload = function () { null };
   </script>
 
 
@@ -67,48 +60,45 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="main.html"><img id="picture" src="images/logo2.png" alt="CovidTrackr"></a>
-      </li>
-    </ul>
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <div class="navbar-nav">
-        <a href="about.html" class="nav-item nav-link" onclick="window.location='about.html'">About us</a>
-        <a href="travelhistory.html" class="nav-item nav-link" onclick="window.location='travelhistory.html'">Travel
-          History</a>
-        <a href="encounters.html" class="nav-item nav-link">Encounters</a>
-        <a href="declarePositive.html" class="nav-item nav-link">Declare COVID Positive</a>
-        <a href="resources.html" class="nav-item nav-link"> Resources</a>
-        <a href="#" id="logoutButton" class="nav-item nav-link">Logout</a>
-      </div>
-    </div>
-  </nav>
-
-
   <div>
-    <h1 id="welcomeMessage"></h1>
-
-    <div id="mapContainer">
-      <div id="map"></div>
-    </div>
-    <br>
-    <div id="routeButtonHolder">Loading History...</div>
+    <nav class="navbar">
+      <a href="main.html"><img id="picture" src="./images/logo.png" alt="Picture of our tracker"></a>
+      <a id="num1" href="">About us</a>
+      <a id="num2" href="">Travel History</a>
+      <a id="num3" href="">Map</a>
+      <a id="num4" href="">Resources</a>
+      <a id="num4" href="">Declare COVID Positive</a>
+      <button id="logoutButton" type="button">Log Out</button>
+    </nav>
   </div>
 
 
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/popper/popper.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/tether/tether.min.js"></script>
-  <script src="assets/smoothscroll/smooth-scroll.js"></script>
-  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
-  <script src="assets/theme/js/script.js"></script>
+  <h1 id="welcomeMessage">Welcome</h1>
+
+  <div id="map"></div>
+  <div id='container'>
+    <button type="button" class="trackMe"><span>TRACK ME</span></button>
+  </div>
+
+  <div id="buttonContainer">
+    <button type="button" id="readButton"><span>Read Info</span></button>
+  </div>
+  <div id="displayData">
+    <h2 id="timerText">Timer:</h2>
+    <h3 id="readDataTextBox"></h3>
+  </div>
+
+
+  <div class="dropup">
+    <button class="dropbtn">Notification</button>
+    <div class="dropup-content">
+      <p><i>You are exposed!</i></p>
+      <a href="#">Learn more here...</a>
+    </div>
+  </div>
+
+
+  
   <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
@@ -117,205 +107,125 @@
   <script>
     const welcome = document.getElementById("welcomeMessage");
     db.collection("users").onSnapshot(function (querySnapshot) {
-      welcome.innerHTML = "<i>" + firebase.auth().currentUser.displayName + ": Travel History </i>";
+      console.log(firebase.auth().currentUser.displayName);
+      welcome.innerHTML = "Welcome, " + firebase.auth().currentUser.displayName;
     });
-    $("#welcomeMessage").css('color', 'white');
   </script>
 
 
   <script>
-    var timeLineLat;
-    var timeLineLon;
-    var timeLineTiS;
-    var minPositionLat;
-    var maxPositionLat;
-    var minPositionLon;
-    var maxPositionLon;
-    var timeGroupSize;
-    var travelHistoryTimes = [];
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        //user is logged in
-        var curDate = new Date();
-        var curTime = curDate.getTime();
-        var userID = user.uid;
-
-
-        db.collection(userID + ' tracking').get().then(function (snap) {
-          var i = 0;
-          var dbReadDataLat = [];
-          var dbReadDataLon = [];
-          var dbReadDataTimeStamp = [];
-          snap.forEach(function (doc) { // iterate thru collections
-            dbReadDataLat[i] = doc.data().lat;
-            dbReadDataLon[i] = doc.data().lon;
-            dbReadDataTimeStamp[i] = doc.data().timeStamp;
-            travelHistoryTimes.push(doc.data().timeStamp);
-
-            i += 1;
-          });
-          
-          //ONLY STORE 2 WEEKS WORTH OF TRAVEL HISTORY
-          var curDate = new Date();
-          var curTime = curDate.getTime();
-          //look for old travel data to delete
-          for(i=0;i<travelHistoryTimes.length;i++){
-            //1000 * 60 * 60 * 24 * 7 * 2 = two weeks 
-            if(travelHistoryTimes[i]+ 1000 * 60 * 60 * 24 * 7 * 2 < curTime){
-              db.collection(userID + ' tracking').doc(travelHistoryTimes[i].toString()).delete().then(function() {
-                //console.log("Document successfully deleted!");
-              }).catch(function(error) {
-                //console.error("Error removing document: ", error);
-              });
-            }
-          }
-
-          //dbReadDataLat, dbReadDataLon, and dbReadDataTimeStamp are now filled up
-          //first we will loop through dbReadDataTimeStamp and find out how many time groups there are
-          var timeGroups = 0;
-          var previousTime = 0;
-          var currentTime = 0;
-          timeGroupSize = [];
-          var largestTimeGroup = 0;
-          for (i = 0; i < dbReadDataTimeStamp.length; i++) {
-            currentTime = dbReadDataTimeStamp[i];
-            //check if there has been a 5min jump or more
-            if (currentTime > previousTime + 1000 * 60 * 5) {
-              timeGroups++;
-              timeGroupSize[timeGroups - 1] = 0;
-            }
-            timeGroupSize[timeGroups - 1]++;
-
-            if (timeGroupSize[timeGroups - 1] > largestTimeGroup) {
-              largestTimeGroup = timeGroupSize[timeGroups - 1];
-            }
-
-            previousTime = currentTime;
-          }
-
-          //timeGroups holds how many disconnected timelines this user has
-          //largestTimeGroup is size of the longest line
-          //timeGroupSize is the size of each line
-          timeLineLat = createArray(timeGroups, largestTimeGroup);
-          timeLineLon = createArray(timeGroups, largestTimeGroup);
-          timeLineTiS = createArray(timeGroups, largestTimeGroup);
-          minPositionLat = [];
-          maxPositionLat = [];
-          minPositionLon = [];
-          maxPositionLon = [];
-
-          var loopCounter = 0;
-          var f;
-          for (i = 0; i < timeGroups; i++) {
-            minPositionLat[i] = 1000.0;
-            maxPositionLat[i] = -1000.0;
-            minPositionLon[i] = 1000.0;
-            maxPositionLon[i] = -1000.0;
-            for (f = 0; f < timeGroupSize[i]; f++) {
-              timeLineLat[i][f] = dbReadDataLat[loopCounter];
-              timeLineLon[i][f] = dbReadDataLon[loopCounter];
-              timeLineTiS[i][f] = dbReadDataTimeStamp[loopCounter];
-              if (dbReadDataLat[loopCounter] < minPositionLat[i]) {
-                minPositionLat[i] = dbReadDataLat[loopCounter];
-              }
-              if (dbReadDataLat[loopCounter] > maxPositionLat[i]) {
-                maxPositionLat[i] = dbReadDataLat[loopCounter];
-              }
-              if (dbReadDataLon[loopCounter] < minPositionLon[i]) {
-                minPositionLon[i] = dbReadDataLon[loopCounter];
-              }
-              if (dbReadDataLon[loopCounter] > maxPositionLon[i]) {
-                maxPositionLon[i] = dbReadDataLon[loopCounter];
-              }
-
-              loopCounter++;
-            }
-          }
-
-
-
-
-          var newHtml = "";
-          for (i = 0; i < timeGroups; i++) {
-            //check if the points on the map are too close together
-            var tooCloseTogether = true;
-            var f;
-            for (f = 1; f < timeLineTiS[i].length; f++) {
-              var distanceBetween = Math.sqrt(Math.pow(timeLineLat[i][f] - timeLineLat[i][f - 1], 2) + Math.pow(
-                timeLineLon[i][f] - timeLineLon[i][f - 1], 2));
-              if (distanceBetween > 0.000001) {
-                tooCloseTogether = false;
-                break;
-              }
-            }
-
-
-            if (!tooCloseTogether) {
-              var s = new Date(timeLineTiS[i][0]).toLocaleDateString("en-US") + " " + new Date(timeLineTiS[i][
-                0]).toLocaleTimeString("en-US");
-              newHtml += "<div class='btnContainer'>"
-              newHtml += "<button type='button' class='travelHistoryButton' name='" + i.toString() + "'>" + s +
-                "</button>";
-              newHtml += "</div>"
-            }
-          }
-          $('#routeButtonHolder').html(newHtml);
-
-
-
-
-        });
-      } else {
-        //user is not logged in
-      }
+    //write timestamp and location to the database
+    $(document).on('click', '.trackMe', function (event) {
+      getLocation();
+      showError();
     });
 
 
-    
-    
 
-    //when a user travel path button has been clicked on
-    var currentPath;
-    $(document).on('click', '.travelHistoryButton', function (event) {
-      //alert($( this ).attr("name"));
-      var routeNum = parseInt($(this).attr("name"));
+    function saveData() {
 
-      var newTop = minPositionLat[routeNum];
-      var newLeft = minPositionLon[routeNum];
-      var newBottom = maxPositionLat[routeNum];
-      var newRight = maxPositionLon[routeNum];
-      //expand the view so the path is in view
-      newTop += (newTop - newBottom) / 4.0;
-      newLeft += (newLeft - newRight) / 4.0;
-      newBottom += (newBottom - newTop) / 4.0;
-      newRight += (newRight - newLeft) / 4.0;
+      var user = firebase.auth().currentUser;
+      var curDate = new Date();
+      var curTime = curDate.getTime();
+      var userID = user.uid;
 
-      var bbox = new H.geo.Rect(newTop, newLeft, newBottom, newRight);
-      map.getViewModel().setLookAtData({
-        bounds: bbox
-      });
+      var docData = {
+        lat: latData,
+        lon: lonData,
+        timeStamp: curTime
+      };
+
+      db.collection(userID + ' tracking').doc(curTime.toString()).set(docData);
+    }
 
 
-      var i;
-      var lineString = new H.geo.LineString();
-      for (i = 0; i < timeGroupSize[routeNum]; i++) {
-        lineString.pushPoint({
-          lat: timeLineLat[routeNum][i].toString(),
-          lng: timeLineLon[routeNum][i].toString()
+
+    //read timestamp and location from the database
+    $(document).on('click', '#readButton', function (event) {
+      var user = firebase.auth().currentUser;
+      var curDate = new Date();
+      var curTime = curDate.getTime();
+      var userID = user.uid;
+
+      db.collection(userID + ' tracking').get().then(function (snap) {
+        var i = 0;
+        var dbReadDataLat = [];
+        var dbReadDataLon = [];
+        var dbReadDataTimeStamp = [];
+        snap.forEach(function (doc) { // iterate thru collections
+          dbReadDataLat[i] = doc.data().lat;
+          dbReadDataLon[i] = doc.data().lon;
+          dbReadDataTimeStamp[i] = doc.data().timeStamp;
+
+          i += 1;
         });
-      }
 
-      if (currentPath)
-        map.removeObject(currentPath);
-      currentPath = new H.map.Polyline(lineString, {
-        style: {
-          lineWidth: 4
+        var newHtml = "<ul>";
+        for (i = 0; i < dbReadDataLat.length; i++) {
+          newHtml += "<li><b>lat:</b> " + dbReadDataLat[i] + " ";
+          newHtml += "<b>lon:</b> " + dbReadDataLon[i] + " ";
+          var s = new Date(dbReadDataTimeStamp[i]).toLocaleDateString("en-US") +" "+ new Date(dbReadDataTimeStamp[i]).toLocaleTimeString("en-US");
+          newHtml += "<b>time:</b> " + s + "</li>";
         }
+        newHtml += "</ul>";
+        $('#readDataTextBox').html(newHtml);
       });
-      map.addObject(currentPath);
-
     });
 
+
+    //timer
+    timeCounter = 0;
+
+    function displayTimer() {
+      $('#timerText').html("Timer: " + timeCounter.toString());
+      timeCounter++;
+      setTimeout(displayTimer, 1000);
+    }
+    displayTimer();
+
+
+
+    //GPS Code
+    errorMessage = "";
+    latData = -1;
+    lonData = -1;
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        errorMessage = "Geolocation is not supported by this browser.";
+      }
+    }
+
+
+
+    function showPosition(position) {
+      latData = position.coords.latitude;
+      lonData = position.coords.longitude;
+      saveData();
+    }
+
+    function showError(error) {
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          errorMessages = "User denied the request for Geolocation."
+          alert(errorMessages);
+          break;
+        case error.POSITION_UNAVAILABLE:
+          errorMessage = "Location information is unavailable."
+          alert(errorMessage);
+          break;
+        case error.TIMEOUT:
+          errorMessage = "The request to get user location timed out."
+          alert(errorMessage);
+          break;
+        case error.UNKNOWN_ERROR:
+          errorMessage = "An unknown error occurred."
+          alert(errorMessage);
+          break;
+      }
+    }
 
 
     //Logout function
@@ -327,54 +237,95 @@
         //console.log("Some error occured");
       });
     })
+    
 
-
-    //Multi D Array Creation
-    function createArray(length) {
-      var arr = new Array(length || 0),
-        i = length;
-
-      if (arguments.length > 1) {
-        var args = Array.prototype.slice.call(arguments, 1);
-        while (i--) arr[length - 1 - i] = createArray.apply(this, args);
-      }
-
-      return arr;
-    }
-
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
-     * Boilerplate map initialization code starts below:
-     */
+ * Adds a polyline between Dublin, London, Paris and Berlin to the map
+ *
+ * @param  {H.Map} map      A HERE Map instance within the application
+ */
+function addPolylineToMap(map) {
+  var lineString = new H.geo.LineString();
 
-    //Step 1: initialize communication with the platform
-    // In your own code, replace variable window.apikey with your own apikey
-    var platform = new H.service.Platform({
-      apikey: 'uw2JIIk15Ly80GW4DZEwS5mMIAs8k3nzfrAo70doJlw'
-    });
-    var defaultLayers = platform.createDefaultLayers();
+  lineString.pushPoint({lat:53.3477, lng:-6.2597});
+  lineString.pushPoint({lat:51.5008, lng:-0.1224});
+  lineString.pushPoint({lat:48.8567, lng:2.3508});
+  lineString.pushPoint({lat:52.5166, lng:13.3833});
 
-    //Step 2: initialize a map - this map is centered over Europe
-    var map = new H.Map(document.getElementById('map'),
-      defaultLayers.vector.normal.map, {
-        center: {
-          lat: 52,
-          lng: 5
-        },
-        zoom: 5,
-        pixelRatio: window.devicePixelRatio || 1
-      });
-    // add a resize listener to make sure that the map occupies the whole container
-    window.addEventListener('resize', () => map.getViewPort().resize());
+  map.addObject(new H.map.Polyline(
+    lineString, { style: { lineWidth: 4 }}
+  ));
+}
 
-    //Step 3: make the map interactive
-    // MapEvents enables the event system
-    // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+/**
+ * Boilerplate map initialization code starts below:
+ */
 
-    // Create the default UI components
-    var ui = H.ui.UI.createDefault(map, defaultLayers);
+//Step 1: initialize communication with the platform
+// In your own code, replace variable window.apikey with your own apikey
+var platform = new H.service.Platform({
+  apikey: 'uw2JIIk15Ly80GW4DZEwS5mMIAs8k3nzfrAo70doJlw'
+});
+var defaultLayers = platform.createDefaultLayers();
+
+//Step 2: initialize a map - this map is centered over Europe
+var map = new H.Map(document.getElementById('map'),
+  defaultLayers.vector.normal.map,{
+  center: {lat:52, lng:5},
+  zoom: 5,
+  pixelRatio: window.devicePixelRatio || 1
+});
+// add a resize listener to make sure that the map occupies the whole container
+window.addEventListener('resize', () => map.getViewPort().resize());
+
+//Step 3: make the map interactive
+// MapEvents enables the event system
+// Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+// Create the default UI components
+var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+
+// Now use the map as required...
+addPolylineToMap(map);                  
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   </script>
 
 </body>

@@ -24,7 +24,6 @@
     <!------------------------>
 
     <link rel="stylesheet" href="./style/login.css">
-    <link rel="icon" href="images/favicon.png">
 
     <!--Diables the back button of the browser-->
     <script type="text/javascript" >
@@ -40,19 +39,11 @@
     <!--  HTML Section -->
     <!----------------------->
 
-
     <div id="container">
-    <nav class="navbar navbar-expand-sm bg-dark justify-content-center">
-
-        <!-- Links -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#"><img id="picture" src="images/logo2.png" alt="CovidTrackr"></a>
-          </li>
-        </ul>
-      </nav>
+        <nav class="navbar">
+            <img id="picture" src="./images/logo.png" alt="Picture of our tracker">
+        </nav>
     </div>
-
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
 
@@ -138,12 +129,12 @@
             signInSuccessUrl: 'main.html',
             signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
-                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
                 //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
                 //firebase.auth.GithubAuthProvider.PROVIDER_ID,
                 firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                firebase.auth.PhoneAuthProvider.PROVIDER_ID
+                //firebase.auth.PhoneAuthProvider.PROVIDER_ID
             ],
             // Terms of service url.
             tosUrl: 'main.html',
