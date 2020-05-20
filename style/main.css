@@ -1,3 +1,6 @@
+/**
+source: https://cssgradient.io/
+*/
 body {
   background-color: blue;
   background-image:
@@ -39,9 +42,9 @@ body {
 #container {
   display: block;
   text-align: center;
-  position: absolute;
+  position: relative;
   margin: auto;
-  top: 50%;
+  top: 20%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   left: 50%;

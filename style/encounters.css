@@ -10,6 +10,9 @@
    height: 5vh;
  }
 
+ /**
+source: https://cssgradient.io/
+*/
  body {
    background-color: blue;
    background-image:
@@ -17,6 +20,7 @@
        #20486a,
        #00839e 70%);
  }
+
  #welcomeMessage {
    position: relative;
    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
