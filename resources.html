@@ -32,7 +32,7 @@
 
 <body>
 
-    <!--Navbar. 
+  <!--Navbar. 
     Soruce: 
     1)Bootstrap 
     2)Mobirise(styling-dropdown)(https://mobirise.com/)-->
@@ -61,7 +61,7 @@
 
 
   <!--H1-->
-  <h1 id="heading"><i>Miscellaneous</i></h1>
+  <h1 class="heading"><i>Miscellaneous</i></h1>
   <!--Buttons-->
   <div id="container">
     <button id="btn1" class="button"><a
@@ -76,15 +76,30 @@
         href="http://www.bccdc.ca/resource-gallery/Documents/Guidelines%20and%20Forms/Guidelines%20and%20Manuals/Epid/CD%20Manual/Chapter%201%20-%20CDC/COVID19-Contact-monitoring-form.pdf">
         <span>Daily Self Monitoring Form for COVID-19</span>
       </a></button>
-    <a href="https://twitter.com/intent/tweet?screen_name=CTrackr&ref_src=twsrc%5Etfw" class="twitter-mention-button"
-      data-size="large" data-show-count="false">Tweet us at @CTrackr</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
 
-  <!--Widget to tweet from the app -->
-  <div id="tweet">
 
+  <div id="container2">
+    <h1 class="heading">Social</h1>
+    <div>
+      <!--Twitter stuff-->
+      <a href="https://twitter.com/intent/tweet?screen_name=CTrackr&ref_src=twsrc%5Etfw" class="twitter-mention-button"
+        data-size="large" data-show-count="false">Tweet us at @CTrackr</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <br />
+    <!-- Facebook share -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0">
+    </script>
+
+    <div class="fb-share-button" data-href="https://covid-blocker.web.app/" data-layout="button" data-size="large"><a
+        target="_blank"
+        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcovid-blocker.web.app%2F&amp;src=sdkpreparse"
+        class="fb-xfbml-parse-ignore">Share</a></div>
   </div>
+
+
 
 
 
