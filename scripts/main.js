@@ -430,9 +430,9 @@ const welcome = document.getElementById("welcomeMessage");
                     for (c = 0; c < infectedListTim.length; c++) {
                       //SETUP:  timeLineTiS[a][b] timeLineLat[a][b] timeLineLon[a][b] infectedListTim[c]  infectedListLat[c]  infectedListLon[c]
                       //encountersTim encountersLat encountersLon
-                      //check for points that are within 100 meters and within 1min apart from each other
+                      //check for points that are within 40 meters and within 1min apart from each other
                       if ((measure(timeLineLat[a][b], timeLineLon[a][b], infectedListLat[c],
-                          infectedListLon[c]) <= 100.0) &&
+                          infectedListLon[c]) <= 40.0) &&
                         ((Math.abs(timeLineTiS[a][b] - infectedListTim[c])) <= 60 * 1000)) {
                         //encounter!!!
                         encountersLat[a].push(timeLineLat[a][b]);
