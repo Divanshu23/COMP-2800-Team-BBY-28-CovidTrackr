@@ -1,4 +1,4 @@
-/**
+/*
 source: https://cssgradient.io/
 */
 body {
@@ -53,6 +53,9 @@ body {
 }
 
 
+/*Button styling.
+Credits: w3Schools
+*/
 .trackMe {
   display: inline-block;
   border-radius: 4px;
