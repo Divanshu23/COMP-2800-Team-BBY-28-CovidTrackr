@@ -1,3 +1,13 @@
+  /**
+   * Performs the easter egg. 
+   * Code used to build this was found on github.
+   *
+   * @author Mahdi Farra
+   * @see https://github.com/MahdiF/taptaptap
+   * @license https://github.com/MahdiF/taptaptap/blob/master/LICENSE
+   */
+
+
 document.addEventListener('DOMContentLoaded', function() {
   // Do after the document fully loaded
 });
