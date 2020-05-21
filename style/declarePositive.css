@@ -1,4 +1,4 @@
-/**
+/*
 source: https://cssgradient.io/
 */
 body {
@@ -35,6 +35,9 @@ body {
   letter-spacing: .1em;
 }
 
+/*Button styling.
+Credits: w3Schools
+*/
 .button {
   display: inline-block;
   border-radius: 4px;

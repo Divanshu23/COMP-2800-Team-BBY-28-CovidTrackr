@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /**
+=======
+/*
+>>>>>>> smallrange
 source: https://cssgradient.io/
 */
 body {
@@ -34,20 +38,9 @@ body {
   letter-spacing: .1em;
 }
 
-/*
-  #grid1 {
-    display: grid;
-    grid-template-columns: 350px 350px;
-    grid-row: auto auto;
-  }
 
-  div button {
-    height: 50px;
-    width: 300px;
-  }
-  div button a {
-      float: left;
-  }
+/*Button styling.
+Credits: w3Schools
 */
 .button {
   display: inline-block;
