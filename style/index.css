@@ -2,7 +2,7 @@
   width: 30vh;
 }
 
-/**
+/*
 source: https://cssgradient.io/
 */
 body {
@@ -11,6 +11,7 @@ body {
     radial-gradient(circle at top right,
       #20486a,
       #00839e 70%);
+  background-attachment: fixed;
 }
 
 #container {

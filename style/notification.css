@@ -62,10 +62,14 @@
   background-color: #2980B9;
 }
 
+/*
+source: https://cssgradient.io/
+*/
 body {
   background-color: blue;
   background-image:
     radial-gradient(circle at top right,
       #20486a,
       #00839e 70%);
+  background-attachment: fixed;
 }

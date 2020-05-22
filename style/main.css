@@ -1,4 +1,4 @@
-/**
+/*
 source: https://cssgradient.io/
 */
 body {
@@ -7,6 +7,7 @@ body {
     radial-gradient(circle at top right,
       #20486a,
       #00839e 70%);
+  background-attachment: fixed;
 }
 
 /*Welcome Message styling*/
@@ -53,6 +54,9 @@ body {
 }
 
 
+/*Button styling.
+Credits: w3Schools
+*/
 .trackMe {
   display: inline-block;
   border-radius: 4px;

@@ -10,7 +10,7 @@
    height: 5vh;
  }
 
- /**
+ /*
 source: https://cssgradient.io/
 */
  body {
@@ -19,6 +19,7 @@ source: https://cssgradient.io/
      radial-gradient(circle at top right,
        #20486a,
        #00839e 70%);
+   background-attachment: fixed;
  }
 
  #welcomeMessage {
