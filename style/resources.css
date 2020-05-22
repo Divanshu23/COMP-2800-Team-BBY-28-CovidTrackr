@@ -7,6 +7,7 @@ body {
     radial-gradient(circle at top right,
       #20486a,
       #00839e 70%);
+  background-attachment: fixed;
 }
 
 
@@ -94,7 +95,8 @@ Credits: w3Schools
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
 }
-#container2{
+
+#container2 {
   display: block;
   text-align: center;
   position: relative;
@@ -105,7 +107,8 @@ Credits: w3Schools
   left: 50%;
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  
+  padding-bottom: 20%;
+
 }
 
 
@@ -122,10 +125,10 @@ Credits: w3Schools
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
   }
- 
+
 }
 
-@media all and (min-width:1095px) and (max-width:1460px){
+@media all and (min-width:1095px) and (max-width:1460px) {
   #container {
     display: block;
     text-align: center;
@@ -139,7 +142,7 @@ Credits: w3Schools
     transform: translateX(-50%);
   }
 
-  #container2{
+  #container2 {
     display: block;
     text-align: center;
     position: absolute;
@@ -150,11 +153,11 @@ Credits: w3Schools
     left: 50%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    
+
   }
 }
 
-@media all and (min-width:1448px){
+@media all and (min-width:1448px) {
   #container {
     display: block;
     text-align: center;
@@ -167,7 +170,8 @@ Credits: w3Schools
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
   }
-  #container2{
+
+  #container2 {
     display: block;
     text-align: center;
     position: absolute;
@@ -178,7 +182,6 @@ Credits: w3Schools
     left: 50%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    
+
   }
 }
-
