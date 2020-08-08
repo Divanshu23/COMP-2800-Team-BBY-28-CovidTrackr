@@ -1,4 +1,4 @@
-CovidTrackr
+# [CovidTrackr](http://covidtrackr.ca/)
 An application that uses real-time location tracking to warn users of potential exposure to COVID-19.
 
 File Layout: 
@@ -15,26 +15,26 @@ Getting Started:
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 What will you need to install the software and how to install them
 
-1. The languages used to develop the web app are: 
+1. The languages used to develop the web app are:Â 
 	a. HTML 5
-	b. JavaScript 
+	b. JavaScriptÂ 
 	c. CSS
 
-2. The IDE’s used was commong amongst all developers (latest version)
+2. The IDEâ€™s used was commong amongst all developers (latest version)
 	a. Visual studio code (download here: https://code.visualstudio.com/)
 	
 3. The database
 	a. We used a NoSQL database- Firebase
 	b. The database stores all the information regarding the logged-in user's
-		i.   Email address
-		ii.  Timestamps 
-		iii. Latitudes and longitudes 
+		i.   EmailÂ address
+		ii.  TimestampsÂ 
+		iii. Latitudes and longitudesÂ 
 
 4. Other required Softwares
  	a. Google Spreadsheets to log testing
 	b. HereMaps to display the maps in our web application
 
-5. We used two 3rd party APIs 
+5. We used two 3rd party APIsÂ 
 	a. Firebase (https://firebase.google.com/)
            User authentication / Database
 	b. HereMaps (https://heremaps.github.io/examples/index.html)
@@ -52,14 +52,14 @@ What will you need to install the software and how to install them
 To set up our web application on your local computer: 
 please clone the repository first and then open the source code files in Visual Studio Code. 
 
-All the connections to the 3rd party APIs are included in the html/javaScript files already. 
+All the connections to the 3rd party APIs are included in the html/javaScript files already.Â 
 
-To get all the login information for the database, please contact us by email: coidtrackr@gmail.com 
+To get all the login information for the database, please contact us by email: coidtrackr@gmail.comÂ 
 
 Running the tests:
 Explain how to run the tests for this system
 Below you can find the link to the list of tests that have been performed on the web application and logged into a spreadsheet:
-https://docs.google.com/spreadsheets/d/1m61_RL3QNAgWcs-EKFKXieEVKoacEwxhD2vRPS03PIo/edit?usp=sharing 
+https://docs.google.com/spreadsheets/d/1m61_RL3QNAgWcs-EKFKXieEVKoacEwxhD2vRPS03PIo/edit?usp=sharingÂ 
 
 
 Acknowledgments
@@ -71,7 +71,7 @@ Acknowledgments
     a.     Source: https://mobirise.com/
 
 3. Bootstrap-4 - Styling of the buttons and navbar
-    a.     Source: https://getbootstrap.com/ 
+    a.     Source: https://getbootstrap.com/Â 
 
 Authors
 
